@@ -12,10 +12,10 @@ const swiper = new Swiper('.swiper', {
     loop: true,
   
     // Navigation arrows
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+    // navigation: {
+    //   nextEl: '.swiper-button-next',
+    //   prevEl: '.swiper-button-prev',
+    // },
 
     // Default parameters
   slidesPerView: 1,
@@ -48,3 +48,21 @@ const swiper = new Swiper('.swiper', {
     }
   }
   });
+
+
+  //API Fetching
+  function fillData(){
+    fetch(`http://www.omdbapi.com/?apikey=b1f6b3a2&s=${userInput}`)
+    .then(res => res.json()) // parse response as JSON
+    .then(data => {
+      console.log(data)
+
+    })
+    .catch(err => {
+        console.log(`error ${err}`)
+    });
+
+}
+
+
+  fillData()

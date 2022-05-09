@@ -281,7 +281,7 @@ section{
     width: 100%;
     max-width: 1600px;
     background: rgb(0, 0, 0);
-    margin-bottom: 8rem;
+    margin-top: 8rem;
 }
 
 .title-category{
@@ -421,6 +421,7 @@ section{
 @media screen and (max-width: 990px){
     header {
         padding: 0;
+        margin: 0;
     }
     section{
         padding: 2.5rem 2.5rem;
@@ -430,7 +431,7 @@ section{
 @media screen and (max-width: 665px){
     .movie-cover-info{
         width: 100%;
-        bottom: 15%;
+        bottom: 9%;
         left: 0;
         display: flex;
         justify-content: center;
@@ -477,3 +478,4 @@ section{
         padding: 2.5rem 5rem;
     }
 }
+
