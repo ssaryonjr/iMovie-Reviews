@@ -22,6 +22,9 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    position: fixed;
+    backdrop-filter: blur(2px);
+    z-index: 1000;
 }
 
 .nav-wrapper {
@@ -239,7 +242,8 @@ header {
 
 @media screen and (max-height: 920px){
     .movie-cover{
-        height: calc(100vh - 13.5rem)
+        /* height: calc(100vh - 13.5rem) */
+        height: 100vh;
     }
 }
 
@@ -265,9 +269,41 @@ header {
     
 }
 
-@media screen and (max-width: 400px){
+@media screen and (max-width: 415px){
     .movie-cover-info{
-        padding: 0 1rem;
+        padding: 0 1.5rem;
     }
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2.5rem 6rem;
+}
+
+.movie-list{
+    width: 100%;
+    max-width: 1600px;
+    background: rgb(0, 0, 0);
+    height: 100vh;
+}
+
+.title-category{
+    color: white;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 4.3rem;
+    position: relative;
+}
+
+.title-category:before{
+    content: "";
+    height: 3px;
+    width: 50px;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    background: red;
 }
 
