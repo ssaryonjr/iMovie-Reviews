@@ -16,7 +16,7 @@ body{
 .header-nav{
     background-color: #000000d2;
     width: 100%;
-    height: 7rem;
+    height: 11rem;
     padding: 0 6rem;
     display: flex;
     flex-direction: column;
@@ -74,10 +74,35 @@ body{
 }
 
 .nav-menu li {
-    color: #c2c2c2d2;
-    font-size: 2rem;
     margin-right: 2rem;
     font-family: 'Martel Sans', sans-serif;
+}
+
+.nav-menu a {
+    color: #c2c2c2d2;
+    font-size: 2rem;
+    text-decoration: none;
+    position: relative;
+    padding-bottom: 1px;
+}
+
+.nav-menu a::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 0;
+    height: 2px;
+    background-color: #f30202;
+    transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .nav-menu a:hover::before{
+    left: 0;
+    right: auto;
+    width: 100%;
+    }
 }
 
 .search-box{
@@ -146,10 +171,10 @@ body{
     font-size: 2.5rem;
 }
 
-@media screen and (max-width: 990px){
+@media screen and (max-width: 1090px){
 
         .header-nav{
-            height: 13.5rem;
+            height: 15.5rem;
             padding: 0;
         }
         .nav-wrapper{
@@ -274,7 +299,7 @@ section{
     position: absolute;
     bottom: -2px;
     left: 0;
-    background: red;
+    background: #f30202;
 }
 
 .swiper {
@@ -288,6 +313,7 @@ section{
 
   .swiper-slide:hover{
       cursor: pointer;
+      transition: 0.5s;
   }
 
 
@@ -308,7 +334,7 @@ section{
     }
 }
 
-@media screen and (max-width: 660px){
+@media screen and (max-width: 665px){
     .movie-cover-info{
         width: 100%;
         bottom: 15%;
@@ -328,6 +354,10 @@ section{
         font-size: 1.6rem;
     }
     
+    .search-box{
+        margin-top: 1.2rem;
+    }
+
     section{
         text-align: center;
         align-items: center;
