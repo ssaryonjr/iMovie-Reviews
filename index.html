@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="src/style.css">
     <script src="https://kit.fontawesome.com/6ceaed6488.js" crossorigin="anonymous"></script>
 
+    <!---Swiper JS-->
+<link
+rel="stylesheet"
+href="https://unpkg.com/swiper@8/swiper-bundle.min.css"
+/>
+
     <!---Font Links-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,9 +35,9 @@
             <div class="nav-leftside">
                 <ul class="nav-menu">
                 <li>Home</li>
-                <li>Genre</li>
                 <li>TV Shows</li>
                 <li>Movies</li>
+                <li>Contact</li>
             </ul>
 
             <div class="search-box">
@@ -57,10 +63,60 @@
         </header>
         <section>
             <div class="movie-list">
-                <h3n class="title-category">Popular Shows</h3>
+                <h3 class="title-category">Trending Shows</h3>
+                    
+                    <div class="swiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                          <!-- Slides -->
+                          <div class="swiper-slide">
+                              <img class="movie-photo" src="https://i.pinimg.com/originals/2d/bd/d9/2dbdd99b5483bb7af7f8fa1e977f9b1f.jpg">
+                          </div>
+                          <div class="swiper-slide">
+                              <img class="movie-photo" src="https://images.moviesanywhere.com/6305a9e8ed76d5fa485ac16637655cf7/bcc68be4-eede-409b-a63d-e179b28d19b4.jpg">
+                          </div>
+                          <div class="swiper-slide">
+                            <img class="movie-photo" src="https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/black-panther-web.jpg">
+                          </div>
+                          <div class="swiper-slide">Slide 3</div>
+                          <div class="swiper-slide">Slide 3</div>
+                        </div>
+                                              
+                        <!-- If we need navigation buttons -->
+                        <!-- <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div> -->
+                      </div>
+            </div>
+
+            <div class="movie-list">
+                <h3 class="title-category">Latest Movies</h3>
+                    
+                    <div class="swiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                          <!-- Slides -->
+                          <div class="swiper-slide">
+                              <img class="movie-photo" src="https://cultureposters.com/wp-content/uploads/2019/04/avengers-2.jpeg">
+                          </div>
+                          <div class="swiper-slide">
+                              <img class="movie-photo" src="https://images.moviesanywhere.com/6305a9e8ed76d5fa485ac16637655cf7/bcc68be4-eede-409b-a63d-e179b28d19b4.jpg">
+                          </div>
+                          <div class="swiper-slide">
+                            <img class="movie-photo" src="https://www.washingtonpost.com/graphics/2019/entertainment/oscar-nominees-movie-poster-design/img/black-panther-web.jpg">
+                          </div>
+                          <div class="swiper-slide">Slide 3</div>
+                          <div class="swiper-slide">Slide 3</div>
+                        </div>
+                                              
+                        <!-- If we need navigation buttons -->
+                        <!-- <div class="swiper-button-prev"></div>
+                        <div class="swiper-button-next"></div> -->
+                      </div>
             </div>
         </section>
-    
+
+        
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="src/main.js"></script>
 </body>
 </html>
