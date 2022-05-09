@@ -1,0 +1,273 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Martel Sans', sans-serif;
+}
+
+html {
+    font-size: 62.5%
+}
+
+body{
+    background:rgba(0, 0, 0, 0.952);
+}
+
+.header-nav{
+    background-color: #000000d2;
+    width: 100%;
+    height: 7rem;
+    padding: 0 6rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-wrapper {
+    width: 100%;
+    display: flex;
+    height: 100%;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1600px;
+}
+
+.website-title {
+    font-size: 4.5rem;
+}
+
+.title-left,
+.title-right{
+    font-family: 'Bebas Neue', cursive;
+    display: inline-block;
+
+}
+
+.title-left{
+    color: #ffff;   
+}
+
+.title-right{
+    color: #e20101;
+    font-weight: lighter;
+}
+
+.nav-leftside{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-menu{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    list-style-type: none;
+}
+
+.nav-menu li {
+    color: #c2c2c2d2;
+    font-size: 2rem;
+    margin-right: 2rem;
+    font-family: 'Martel Sans', sans-serif;
+}
+
+.search-box{
+    position: relative;
+    width: 3rem;
+    height: 3rem;
+    background: #303030;
+    border-radius: 3rem;
+    transition: 0.5s;
+    box-shadow: 0 0 0 2.5px rgba(204, 204, 204, 0.281);
+    overflow: hidden;
+    margin-bottom: .2rem;
+}
+
+.search-box.active {
+    width: 260px;
+}
+
+.magnifying-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3rem;
+    height: 3rem;
+    background: rgb(48, 48, 48);
+    border-radius: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.magnifying-icon i {
+    color: #c2c2c2be;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.search-input{
+    position: absolute;
+    width: 220px;
+    height: 3rem;
+    left: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-input input{
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: #303030;
+    font-size: 1.6rem;
+    color: #c2c2c2be;
+}
+
+.mobile-menu{
+    margin-left: 1rem;
+    display: none;
+}
+
+.mobile-menu i{
+    color: #c2c2c2be;
+    font-size: 2.5rem;
+}
+
+@media screen and (max-width: 990px){
+
+        .header-nav{
+            height: 13.5rem;
+            padding: 0;
+        }
+        .nav-wrapper{
+            flex-direction: column;
+            justify-content: center;
+
+        }
+
+        .nav-leftside{
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+        }
+}
+
+@media screen and (max-width: 660px){
+    .nav-leftside{
+        flex-direction: column;
+    }
+
+    .nav-menu li {
+        font-size: 1.9rem;
+        margin-right: 1.8rem;
+    }
+
+    .nav-menu li:last-child{
+        margin-right: 0;
+    }
+    
+
+    .search-box{
+        width: 260px;
+    }
+
+    .website-title{
+        line-height: 1;
+    }
+}
+
+header {
+    padding: 0 6rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.movie-cover{
+    position: relative;
+    padding: 0 6rem;
+    background-image: url("../img/moviecover.jpg");
+    height: 60rem;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size:cover;
+    max-width: 1600px;
+}
+
+.movie-cover-info{
+    width: 45rem;
+    position: absolute;
+    bottom: 10%;
+    left: 10rem;
+}
+
+.movie-cover-info p{
+    color: white;
+    font-size: 1.7rem;
+    margin-top: 1.3rem;
+}
+
+.movie-cover-btn {
+    color: white;
+    background-color: #e20101;
+    width: 15rem;
+    height: 4rem;
+    border-radius: 4px;
+    border: none;
+    font-size: 1.6rem;
+    outline: none;
+    cursor: pointer;
+}
+
+@media screen and (max-width: 990px){
+    header {
+        padding: 0;
+    }
+
+}
+
+@media screen and (max-height: 920px){
+    .movie-cover{
+        height: calc(100vh - 13.5rem)
+    }
+}
+
+@media screen and (max-width: 660px){
+    .movie-cover-info{
+        width: 100%;
+        bottom: 15%;
+        left: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+        padding: 0 5rem;
+    }
+    .movie-cover-img{
+        width: 24rem;
+    }
+
+    .movie-cover-info p{
+        font-size: 1.6rem;
+    }
+    
+}
+
+@media screen and (max-width: 400px){
+    .movie-cover-info{
+        padding: 0 1rem;
+    }
+}
+
