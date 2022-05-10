@@ -372,7 +372,9 @@ section{
 }
 .swiper-slide .read-more:hover {
   background-color: #ffffff;
-  color: #000000;
+  color: #f30202;
+  /* color: black; */
+  cursor: pointer;
 }
 .swiper-slide:hover img,
 .swiper-slide.hover img {

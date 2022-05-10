@@ -123,15 +123,18 @@ const swiper = new Swiper('.swiper', {
           moviePlot.innerText = id.Plot
           tvDetails.append(moviePlot)
 
-          })
 
           //Button was rendering before the movies description due to fetching for the data. So I used set timer to delay it so it can be at the bottom as intended for style.
           setTimeout(()=>{ 
           const moreInfoBtn = document.createElement('a')
           moreInfoBtn.innerText = 'Read More';
           moreInfoBtn.className = 'read-more';
-          tvDetails.appendChild(moreInfoBtn)  
-          }, 100)
+          tvDetails.appendChild(moreInfoBtn);
+          moviePlot.after(moreInfoBtn)
+          }, 1000)
+          })
+
+          
          
 
       });
