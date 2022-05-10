@@ -103,6 +103,14 @@ const swiper = new Swiper('.swiper', {
         tvPoster.className = 'tv-img';
         tvPoster.src = show.Poster;
         tvSlide.appendChild(tvPoster)
+
+        const tvDetails = document.createElement('figcaption');
+        tvSlide.appendChild(tvDetails)
+
+        const tvTitle = document.createElement('h3')
+        tvTitle.innerText = show.Title
+        tvDetails.appendChild(tvTitle)
+
       });
 
     })

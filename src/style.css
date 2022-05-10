@@ -303,7 +303,7 @@ section{
     background: #f30202;
 }
 
-.swiper, .tv-slide {
+.swiper {
     width: 100%;
     height: 40rem;
   }
@@ -314,7 +314,7 @@ section{
   /* min-width: 130px;
   max-width: 415px;
   max-height: 520px;  */
-  width: 100%;
+  width: auto;
   color: #ffffff;
   text-align: left;
   background-color: #0c0a07;
@@ -327,8 +327,7 @@ section{
   transition: all 0.35s ease;
 }
 
-.tv-img,
-.movie-img {
+.swiper-slide img {
   width: 100%;
   height: 100%;
   -webkit-transition-delay: 0.2s;
@@ -480,4 +479,3 @@ section{
         padding: 2.5rem 5rem;
     }
 }
-
