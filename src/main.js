@@ -93,7 +93,7 @@ const swiper = new Swiper('.swiper', {
       console.log(data.Search)
 
       data.Search.forEach(show => {
-        console.log(show)
+        // console.log(show)
 
         const tvSlide = document.createElement('div');
         tvSlide.className = 'swiper-slide';
@@ -111,9 +111,31 @@ const swiper = new Swiper('.swiper', {
         tvTitle.innerText = show.Title
         tvDetails.appendChild(tvTitle)
 
+
+        //Grabs the movie ID for every obj looped. This allows us to access more data from it such as plot, rating, etc.
+        let movieID = show.imdbID
+
+        //Took the movie's ID and fetched for the plot so I can put it in the carousel.
+        fetch(`http://www.omdbapi.com/?i=${movieID}&plot=short&apikey=b1f6b3a2`)
+        .then(res => res.json()) // parse response as JSON
+        .then(id => {
+          const moviePlot = document.createElement('p');
+          moviePlot.innerText = id.Plot
+          tvDetails.append(moviePlot)
+
+          })
+
+          //Button was rendering before the movies description due to fetching for the data. So I used set timer to delay it so it can be at the bottom as intended for style.
+          setTimeout(()=>{ 
+          const moreInfoBtn = document.createElement('a')
+          moreInfoBtn.innerText = 'Read More';
+          moreInfoBtn.className = 'read-more';
+          tvDetails.appendChild(moreInfoBtn)  
+          }, 100)
+         
+
       });
 
-      console.log(data)
     })
     .catch(err => {
         console.log(`error ${err}`)
