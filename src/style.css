@@ -282,6 +282,7 @@ section{
     max-width: 1600px;
     background: rgb(0, 0, 0);
     margin-top: 8rem;
+    overflow: hidden;
 }
 
 .title-category{
@@ -307,7 +308,7 @@ section{
     height: 40rem;
   }
 
-.swiper-slide, .tv-slide, .tv-slide, .tv-slide, .tv-slide {
+.swiper-slide {
   position: relative;
   overflow: hidden;
   /* min-width: 130px;
@@ -319,21 +320,22 @@ section{
   background-color: #0c0a07;
   font-size: 16px;
 }
-.swiper-slide, .tv-slide, .tv-slide, .tv-slide, .tv-slide * {
+.swiper-slide * {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-transition: all 0.35s ease;
   transition: all 0.35s ease;
 }
 
-.swiper-slide, .tv-slide, .tv-slide, .tv-slide, .tv-slide img {
+.tv-img,
+.movie-img {
   width: 100%;
   height: 100%;
   -webkit-transition-delay: 0.2s;
   transition-delay: 0.2s;
   backface-visibility: hidden;
 }
-.swiper-slide, .tv-slide, .tv-slide, .tv-slide, .tv-slide figcaption {
+.swiper-slide figcaption {
   position: absolute;
   top: 50%;
   left: 0;
@@ -347,21 +349,21 @@ section{
   opacity: 0;
   padding: 0 30px;
 }
-.swiper-slide, .tv-slide, .tv-slide, .tv-slide, .tv-slide h3,
-.swiper-slide, .tv-slide, .tv-slide, .tv-slide, .tv-slide p {
+.swiper-slide h3,
+.swiper-slide p {
   line-height: 1.5em;
 }
-.swiper-slide, .tv-slide, .tv-slide, .tv-slide, .tv-slide h3 {
+.swiper-slide h3 {
   margin: 0;
   font-weight: 800;
   text-transform: uppercase;
 }
-.swiper-slide, .tv-slide, .tv-slide, .tv-slide p {
+.swiper-slide p {
   font-size: 0.8em;
   font-weight: 500;
   margin: 0 0 15px;
 }
-.swiper-slide, .tv-slide, .tv-slide, .tv-slide .read-more {
+.swiper-slide .read-more {
   border: 2px solid #ffffff;
   padding: 0.5em 1em;
   font-size: 0.8em;
@@ -369,29 +371,29 @@ section{
   color: #ffffff;
   display: inline-block;
 }
-.swiper-slide, .tv-slide, .tv-slide, .tv-slide .read-more:hover {
+.swiper-slide .read-more:hover {
   background-color: #ffffff;
   color: #000000;
 }
-.swiper-slide, .tv-slide, .tv-slide, .tv-slide:hover img,
-.swiper-slide, .tv-slide, .tv-slide, .tv-slide.hover img {
-  -webkit-animation: swiper-slide, .tv-slide, .tv-slide, .tv-slide 0.45s linear;
-  animation: swiper-slide, .tv-slide, .tv-slide, .tv-slide 0.45s linear;
+.swiper-slide:hover img,
+.swiper-slide.hover img {
+  -webkit-animation: swiper-slide 0.45s linear;
+  animation: swiper-slide 0.45s linear;
   -webkit-animation-iteration-count: 1;
   animation-iteration-count: 1;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
   cursor: pointer;
 }
-.swiper-slide, .tv-slide, .tv-slide, .tv-slide:hover figcaption,
-.swiper-slide, .tv-slide, .tv-slide, .tv-slide.hover figcaption {
+.swiper-slide:hover figcaption,
+.swiper-slide.hover figcaption {
   -webkit-transform: scale(1) translate(0, -50%);
   transform: scale(1) translate(0, -50%);
   opacity: 1;
   -webkit-transition-delay: 0.35s;
   transition-delay: 0.35s;
 }
-@-webkit-keyframes swiper-slide, .tv-slide, .tv-slide, .tv-slide {
+@-webkit-keyframes swiper-slide {
   50% {
     -webkit-transform: scale(0.8) translateY(0%);
     transform: scale(0.8) translateY(0%);
@@ -403,7 +405,7 @@ section{
     opacity: 0.5;
   }
 }
-@keyframes swiper-slide, .tv-slide, .tv-slide, .tv-slide {
+@keyframes swiper-slide {
   50% {
     -webkit-transform: scale(0.8) translateY(0%);
     transform: scale(0.8) translateY(0%);
