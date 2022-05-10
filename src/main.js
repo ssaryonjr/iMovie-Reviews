@@ -52,10 +52,10 @@ const swiper = new Swiper('.swiper', {
 
   //API Fetching
   function fillData(){
-    fetch(`http://www.omdbapi.com/?apikey=b1f6b3a2&s=${userInput}`)
+    fetch(`https://www.omdbapi.com/?apikey=b1f6b3a2&s=last&type=movie&plot=full`)
     .then(res => res.json()) // parse response as JSON
     .then(data => {
-      console.log(data)
+      console.log(data.Search)
 
     })
     .catch(err => {
