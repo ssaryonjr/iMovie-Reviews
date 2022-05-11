@@ -4,9 +4,81 @@ window.addEventListener('load', loadShows)
 
 const searchIcon = document.querySelector('.fa-magnifying-glass')
 const searchBox = document.querySelector('.search-box')
+
 searchIcon.addEventListener('click', function() {
-    searchBox.classList.toggle('active')
+  searchBox.classList.toggle('active')
+
+  //Dropdown search list will disappear and input string will reset if the searchbox is clicked while it's open.
+  if(!searchBox.classList.contains('active')){
+    searchList.classList.remove('hide-search-list-dropdown')
+    searchedTitle.value = ''
+
+  }
 })
+
+
+const searchList = document.querySelector('.search-list-dropdown');
+let searchedTitle = document.getElementById('searchMovie')
+
+
+searchedTitle.addEventListener('input', handleInput)
+
+let timeoutID
+
+function handleInput(){
+  searchList.innerHTML = '' //Resets the search list everytime a new key is entered
+    clearTimeout(timeoutID)
+    timeoutID = setTimeout(fetchThings, 500)
+}
+
+function fetchThings(){
+    let userInput = (searchedTitle.value).trim()
+    console.log(userInput)
+    if (userInput.length > 0){
+      searchList.classList.add('hide-search-list-dropdown')
+    } else {
+      searchList.classList.remove('hide-search-list-dropdown')
+    }
+
+    fetch(`https://www.omdbapi.com/?apikey=b1f6b3a2&s=${userInput}&type=movie`)
+    .then(res => res.json()) // parse response as JSON
+    .then(data => {
+      
+      data.Search.forEach(movie => {
+        const createSearchedItem = document.createElement('div');
+        createSearchedItem.classList.add('search-list-item');
+
+        //Add an if statement in case movie cannot be found or there is no picture.
+        let moviePoster
+        if(movie.Poster != "N/A"){
+          moviePoster = movie.Poster
+        } else {
+          moviePoster = "src/img/noimg.png"
+        }
+
+        createSearchedItem.innerHTML = `
+        <div class="item-thumbnail">
+          <img class="thumbnail" src="${moviePoster}">
+        </div>
+        <div class="search-item-info">
+          <h5>${movie.Title}</h5>
+          <p>${movie.Year}</p>
+        </div>
+        `;
+
+        searchList.appendChild(createSearchedItem)
+
+      });
+    })
+    .catch(err =>{
+      console.log(`Cannot find movie ${userInput}`)
+      let errorMessage = document.createElement('p')
+      errorMessage.classList.add('error-message')
+      errorMessage.innerText = `Cannot find movie '${userInput}'`
+      searchList.appendChild(errorMessage)
+    })
+}
+
 
 
 
