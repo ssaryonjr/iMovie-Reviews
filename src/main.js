@@ -91,7 +91,7 @@ let searchedInput = document.getElementById('searchMovie');
 
 //Load dropdown search list data from OMDb API
 async function fetchSearchListData(searchTerm){
-    const URL = `https://www.omdbapi.com/?apikey=b1f6b3a2&s=${searchTerm}&type=movie`;
+    const URL = `https://www.omdbapi.com/?apikey=5cfbbc87&s=${searchTerm}&type=movie`;
     const res = await fetch(`${URL}`);
     const data = await res.json();
     // console.log(data)
@@ -184,7 +184,7 @@ function fetchClickedMovie(){
       searchList.classList.remove('show-search-list-dropdown');
       searchedInput.value = '';
 
-      const result = await fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=b1f6b3a2&plot=full`)
+      const result = await fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=5cfbbc87&plot=full`)
       const clickedMovie = await result.json();
       console.log(clickedMovie)
       loadClickedMovie(clickedMovie)
@@ -243,7 +243,7 @@ function escapeKeyHandle(e) {
 
 //Fetching Data from API to load movie posters on Carousel Slides generated from Swiper.JS
 async function fetchTopSliderData(){
-  const URL = `https://www.omdbapi.com/?apikey=b1f6b3a2&s=last&type=movie`;
+  const URL = `https://www.omdbapi.com/?apikey=5cfbbc87&s=last&type=movie`;
   const res = await fetch(`${URL}`);
   const data = await res.json();
   // console.log(data)
@@ -256,7 +256,7 @@ function loadTopSliderMovies(movies){
   movies.forEach(movie =>{
     let movieID = movie.imdbID
     //Took the movie's ID and fetched for the plot so I can put it in the carousel.
-   fetch(`http://www.omdbapi.com/?i=${movieID}&plot=short&apikey=b1f6b3a2`)
+   fetch(`http://www.omdbapi.com/?i=${movieID}&plot=short&apikey=5cfbbc87`)
   .then(res => res.json()) // parse response as JSON
   .then(movieDetails => {
   const movieSlide = document.createElement('div');
@@ -277,7 +277,7 @@ function loadTopSliderMovies(movies){
 }
 
 async function fetchBottomSliderData(){
-  const URL = `https://www.omdbapi.com/?apikey=b1f6b3a2&s=show&type=series`;
+  const URL = `https://www.omdbapi.com/?apikey=5cfbbc87&s=show&type=series`;
   const res = await fetch(`${URL}`);
   const data = await res.json();
   // console.log(data)
@@ -289,7 +289,7 @@ async function fetchBottomSliderData(){
 function loadBottomSliderMovies(movies){
   movies.forEach(movie =>{
     let movieID = movie.imdbID
-   fetch(`http://www.omdbapi.com/?i=${movieID}&plot=short&apikey=b1f6b3a2`)
+   fetch(`http://www.omdbapi.com/?i=${movieID}&plot=short&apikey=5cfbbc87`)
   .then(res => res.json()) // parse response as JSON
   .then(movieDetails => {
   const movieSlide = document.createElement('div');
