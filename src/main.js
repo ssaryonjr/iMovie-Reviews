@@ -184,7 +184,7 @@ function fetchClickedMovie(){
       searchList.classList.remove('show-search-list-dropdown');
       searchedInput.value = '';
 
-      const result = await fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=5cfbbc87&plot=full`)
+      const result = await fetch(`https://www.omdbapi.com/?i=${movie.dataset.id}&apikey=5cfbbc87&plot=full`)
       const clickedMovie = await result.json();
       console.log(clickedMovie)
       loadClickedMovie(clickedMovie)
@@ -256,7 +256,7 @@ function loadTopSliderMovies(movies){
   movies.forEach(movie =>{
     let movieID = movie.imdbID
     //Took the movie's ID and fetched for the plot so I can put it in the carousel.
-   fetch(`http://www.omdbapi.com/?i=${movieID}&plot=short&apikey=5cfbbc87`)
+   fetch(`https://www.omdbapi.com/?i=${movieID}&plot=short&apikey=5cfbbc87`)
   .then(res => res.json()) // parse response as JSON
   .then(movieDetails => {
   const movieSlide = document.createElement('div');
@@ -289,7 +289,7 @@ async function fetchBottomSliderData(){
 function loadBottomSliderMovies(movies){
   movies.forEach(movie =>{
     let movieID = movie.imdbID
-   fetch(`http://www.omdbapi.com/?i=${movieID}&plot=short&apikey=5cfbbc87`)
+   fetch(`https://www.omdbapi.com/?i=${movieID}&plot=short&apikey=5cfbbc87`)
   .then(res => res.json()) // parse response as JSON
   .then(movieDetails => {
   const movieSlide = document.createElement('div');
