@@ -45,16 +45,16 @@
           </div>
         </div>
         <div class="search-list-dropdown">
-          <!-- <div class="search-list-item">
+          <!-- <div class="searched-list-item">
             <div class="item-thumbnail">
              <img class="thumbnail" src="blackpanther.jpg">
             </div>
-            <div class="search-item-info">
+            <div class="searched-item-info">
               <h5>Black Panther</h5>
               <p>2018</p>
             </div>
           </div> -->
-
+          <div class="test"></div>
           </div>
         </div>
     </div>
@@ -66,20 +66,22 @@
                    <img class="movie-cover-img" src="src/img/moviecovertitle.png">
                    <p>When two children go missing in a small German town, its sinful past is exposed along with the double lives and fractured relationships that exist among four families as they search for the kids
                    </p>
-                   <button class="movie-cover-btn">More Info</button>
+                   <button class="movie-cover-btn" dataset-id="tt5753856">More Info</button>
                </div>
            </div>
         </header>
         <section>
             <div id="movies" class="category-list">
                 <h3 class="title-category">Trending Movies</h3>
-                <div class="movie-slide">
+                <div class="top-movie-slider">
                     <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper movie-wrapper">
+                    <div class="swiper-wrapper top-wrapper">
                       
                     <!--Slide Template: Currently commented out because I only needed it as an example of what I wanted the API to render to the page once I could set the styles for it in the CSS-->
+
+
                     <!-- <div class="swiper-slide">
-                      <img class="tv-img" src="https://images.moviesanywhere.com/6305a9e8ed76d5fa485ac16637655cf7/bcc68be4-eede-409b-a63d-e179b28d19b4.jpg"/>
+                      <img src="https://images.moviesanywhere.com/6305a9e8ed76d5fa485ac16637655cf7/bcc68be4-eede-409b-a63d-e179b28d19b4.jpg"/>
                       <figcaption>
                       <h3>Jonquil Gibson</h3>
                       <p>Weekends don't count unless you spend them doing something completely pointless.</p><a href="#" class="read-more">Read More</a>
@@ -93,9 +95,9 @@
 
             <div id="tvshows" class="category-list">
                 <h3 class="title-category">Top Shows</h3>
-                <div class="tv-slide">
+                <div class="bottom-movie-slider">
                     <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper show-wrapper">
+                    <div class="swiper-wrapper bottom-wrapper">
                       <!-- Slides -->
                   <!-- <div class="swiper-slide">
                     <img class="show-img" src="https://images.moviesanywhere.com/6305a9e8ed76d5fa485ac16637655cf7/bcc68be4-eede-409b-a63d-e179b28d19b4.jpg"/>
@@ -110,51 +112,31 @@
             </div>
         </section>
 
-          <!-- Site footer -->
-    <footer id="contact" class="site-footer">
-      <div class="footer-container">
-        <div class="row">
-          <div class="about-container">
-            <h6>About Project</h6>
-            <p class="text-justify">Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an initiative  to help the upcoming programmers with the code. Scanfcode focuses on providing the most efficient code or snippets as the code wants to be simple. We will help programmers build up concepts in different programming languages that include C, C++, Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android, SQL and Algorithm.</p>
-          </div>
+			<!--MODAL-->
+			
+      <div class="modal-overlay modal-hidden"></div>
+      <div class="modal modal-hidden">
+        <figure class="close-modal">&times;</figure>
 
-          <div class="col-xs-6">
-            <h6>Tools</h6>
-            <ul class="footer-links">
-              <li><a href="http://scanfcode.com/category/c-language/">Swiper.JS</a></li>
-              <li><a href="http://scanfcode.com/category/front-end-development/">OMDb API</a></li>
-              <li><a href="http://scanfcode.com/category/back-end-development/">JavaScript</a></li>
-              <li><a href="http://scanfcode.com/category/java-programming-language/">HTML</a></li>
-              <li><a href="http://scanfcode.com/category/android/">CSS</a></li>
-            </ul>
-          </div>
-
-          <div class="col-xs-6">
-            <h6>Quick Links</h6>
-            <ul class="footer-links">
-              <li><a href="http://scanfcode.com/about/">Github</a></li>
-              <li><a href="http://scanfcode.com/contact/">Email</a></li>
-              <li><a href="http://scanfcode.com/contribute-at-scanfcode/">LinkedIn</a></li>
-              <li><a href="http://scanfcode.com/privacy-policy/">Twitter</a></li>
-              <li><a href="http://scanfcode.com/sitemap/">Website</a></li>
-            </ul>
-          </div>
+        <!-- <div class="modal-movie-poster">
+          <img src="https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_.jpg" alt="">
         </div>
-        <hr>
-      </div>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-8 col-sm-6 col-xs-12">
-            <p class="copyright-text"> &copy; 2022 All Rights Reserved by 
-         <a href="#">Sam Saryon</a>.
-            </p>
-          </div>
+        <div class="modal-movie-info">
+          <h1>Black Panther</h1>
+          <ul class="release-info">
+            <li>Released: 18 March 2018</li>
+          </ul>
+          <p class="movie-rated"><b>Ratings:</b> R</p>
+          <ul class="generic-info">
+            <li class="genre"><b>Genre:</b> Action, Adventure, Fantasy</li>
+            <li><b>Writer:</b> Ryan Coogler</li>
+            <li><b>Rating:</b> 7.3/10 <i class="fa-solid fa-star"></i></li>
+            <li><b>Plot:</b> Lorem ipsum dolor sit, amet consectetur adipisicing elit.</li>
+          </ul>
+        </div> -->
 
+      </div>
   
-        </div>
-      </div>
-</footer>
 
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
     <script src="src/main.js"></script>

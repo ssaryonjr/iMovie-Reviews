@@ -1,88 +1,8 @@
-//Render Movie & TV Covers from API to DOM
-window.addEventListener('load', loadMovies)
-window.addEventListener('load', loadShows)
+document.addEventListener('DOMContentLoaded', fetchTopSliderData)
+document.addEventListener('DOMContentLoaded', fetchBottomSliderData)
 
-const searchIcon = document.querySelector('.fa-magnifying-glass')
-const searchBox = document.querySelector('.search-box')
-
-searchIcon.addEventListener('click', function() {
-  searchBox.classList.toggle('active')
-
-  //Dropdown search list will disappear and input string will reset if the searchbox is clicked while it's open.
-  if(!searchBox.classList.contains('active')){
-    searchList.classList.remove('hide-search-list-dropdown')
-    searchedTitle.value = ''
-
-  }
-})
-
-
-const searchList = document.querySelector('.search-list-dropdown');
-let searchedTitle = document.getElementById('searchMovie')
-
-
-searchedTitle.addEventListener('input', handleInput)
-
-let timeoutID
-
-function handleInput(){
-  searchList.innerHTML = '' //Resets the search list everytime a new key is entered
-    clearTimeout(timeoutID)
-    timeoutID = setTimeout(fetchThings, 500)
-}
-
-function fetchThings(){
-    let userInput = (searchedTitle.value).trim()
-    console.log(userInput)
-    if (userInput.length > 0){
-      searchList.classList.add('hide-search-list-dropdown')
-    } else {
-      searchList.classList.remove('hide-search-list-dropdown')
-    }
-
-    fetch(`https://www.omdbapi.com/?apikey=b1f6b3a2&s=${userInput}&type=movie`)
-    .then(res => res.json()) // parse response as JSON
-    .then(data => {
-      
-      data.Search.forEach(movie => {
-        const createSearchedItem = document.createElement('div');
-        createSearchedItem.classList.add('search-list-item');
-
-        //Add an if statement in case movie cannot be found or there is no picture.
-        let moviePoster
-        if(movie.Poster != "N/A"){
-          moviePoster = movie.Poster
-        } else {
-          moviePoster = "src/img/noimg.png"
-        }
-
-        createSearchedItem.innerHTML = `
-        <div class="item-thumbnail">
-          <img class="thumbnail" src="${moviePoster}">
-        </div>
-        <div class="search-item-info">
-          <h5>${movie.Title}</h5>
-          <p>${movie.Year}</p>
-        </div>
-        `;
-
-        searchList.appendChild(createSearchedItem)
-
-      });
-    })
-    .catch(err =>{
-      console.log(`Cannot find movie ${userInput}`)
-      let errorMessage = document.createElement('p')
-      errorMessage.classList.add('error-message')
-      errorMessage.innerText = `Cannot find movie '${userInput}'`
-      searchList.appendChild(errorMessage)
-    })
-}
-
-
-
-
-const movieSlider = new Swiper('.movie-slide', {
+//Swiper.JS 
+const topMovieSlider = new Swiper('.top-movie-slider', {
   // Optional parameters
   direction: 'horizontal',
   loop: false,
@@ -118,7 +38,7 @@ breakpoints: {
 }
 });
 
-const tvSlider = new Swiper('.tv-slide', {
+const bottomMovieSlider = new Swiper('.bottom-movie-slider', {
     // Optional parameters
     direction: 'horizontal',
     loop: false,
@@ -162,110 +82,229 @@ const tvSlider = new Swiper('.tv-slide', {
   });
 
 
-  //API Fetching
-  function loadMovies(){
-    fetch(`https://www.omdbapi.com/?apikey=b1f6b3a2&s=last&type=movie`)
-    .then(res => res.json()) // parse response as JSON
-    .then(data => {
-      data.Search.forEach(movie => {
-        // console.log(movie)
 
-        const movieSlide = document.createElement('div');
-        movieSlide.className = 'swiper-slide';
-        document.querySelector('.movie-wrapper').appendChild(movieSlide);
+//Functionality for search bar / modal
 
-        const moviePoster = document.createElement('img');
-        moviePoster.className = 'movie-img';
-        moviePoster.src = movie.Poster;
-        movieSlide.appendChild(moviePoster)
+const searchIcon = document.querySelector('.fa-magnifying-glass')
+const searchList = document.querySelector('.search-list-dropdown');
+let searchedInput = document.getElementById('searchMovie');
 
-        const movieDetails = document.createElement('figcaption');
-        movieSlide.appendChild(movieDetails)
+//Load dropdown search list data from OMDb API
+async function fetchSearchListData(searchTerm){
+    const URL = `https://www.omdbapi.com/?apikey=b1f6b3a2&s=${searchTerm}&type=movie`;
+    const res = await fetch(`${URL}`);
+    const data = await res.json();
+    // console.log(data)
+    if (data.Response == "True") {loadSearchedMovies(data.Search)}
 
-        const movieTitle = document.createElement('h3')
-        movieTitle.innerText = movie.Title
-        movieDetails.appendChild(movieTitle)
-
-
-        //Grabs the movie ID for every obj looped. This allows us to access more data from it such as plot, rating, etc.
-        let movieID = movie.imdbID
-
-        //Took the movie's ID and fetched for the plot so I can put it in the carousel.
-        fetch(`http://www.omdbapi.com/?i=${movieID}&plot=short&apikey=b1f6b3a2`)
-        .then(res => res.json()) // parse response as JSON
-        .then(id => {
-          const moviePlot = document.createElement('p');
-          moviePlot.innerText = id.Plot
-          movieDetails.append(moviePlot)
-
-
-          //Button was rendering before the movies description due to fetching for the data. So I used set timer to delay it so it can be at the bottom as intended for style.
-          setTimeout(()=>{ 
-          const moreInfoBtn = document.createElement('a')
-          moreInfoBtn.innerText = 'Read More';
-          moreInfoBtn.className = 'read-more';
-          movieDetails.appendChild(moreInfoBtn);
-          moviePlot.after(moreInfoBtn)
-          }, 1000)
-          })
-         
-      });
-
-    })
-    .catch(err => {
-        console.log(`error ${err}`)
-    });
-
+    else if (data.Response == 'False'){
+    // console.log(`Cannot find movie ${searchTerm}`)
+          let errorMessage = document.createElement('p')
+          errorMessage.classList.add('error-message')
+          errorMessage.innerText = `Cannot find movie '${searchTerm}'`
+          searchList.appendChild(errorMessage)
+    }
 }
 
-function loadShows(){
-  fetch(`https://www.omdbapi.com/?apikey=b1f6b3a2&s=show&type=series`)
-  .then(response => response.json())
-  .then(data =>  {
-    data.Search.forEach(show =>{
-      
-      const showSlide = document.createElement('div');
-      showSlide.className = 'swiper-slide';
-      document.querySelector('.show-wrapper').appendChild(showSlide);
 
-      const showPoster = document.createElement('img');
-      showPoster.className = 'show-img';
-      showPoster.src = show.Poster;
-      showSlide.appendChild(showPoster)
+//Expands and closes the search bar located in the top navigation.
+searchIcon.addEventListener('click', function() {
+  const searchBox = document.querySelector('.search-box')
+  searchBox.classList.toggle('active')
 
-      const showDetails = document.createElement('figcaption');
-        showSlide.appendChild(showDetails)
-
-      const showTitle = document.createElement('h3')
-      showTitle.innerText = show.Title
-      showDetails.appendChild(showTitle)
+  //Dropdown search list will disappear and input string will reset if the searchbox is clicked while it's open.
+  if(!searchBox.classList.contains('active')){
+    searchList.classList.remove('show-search-list-dropdown')
+    searchedInput.value = '';
+  }
+})
 
 
-       //Grabs the movie ID for every obj looped. This allows us to access more data from it such as plot, rating, etc.
-       let showID = show.imdbID
+//Registers user input from searchbar after a 1 second delay.
+searchedInput.addEventListener('input', handleInput)
 
-       //Took the show's ID and fetched for the plot so I can put it in the carousel.
-       fetch(`http://www.omdbapi.com/?i=${showID}&plot=short&apikey=b1f6b3a2`)
-       .then(res => res.json()) // parse response as JSON
-       .then(id => {
-         const showPlot = document.createElement('p');
-         showPlot.innerText = id.Plot
-         showDetails.append(showPlot)
+let timeoutID //Needs to be left outside of handleInput() function.
+function handleInput(){
+  searchList.innerHTML = '' //Clears the search list when a new key is entered after brief delay.
+  clearTimeout(timeoutID) //If user is continuing to type in the searchbar before the 1 second delay ends the fetchMovies() function will not fire off until user stops.
+  searchList.classList.remove('show-search-list-dropdown')
+  timeoutID = setTimeout(displaySearchList, 1000)
+}
 
 
-         //Button was rendering before the shows description due to fetching for the data. So I used set timer to delay it so it can be at the bottom as intended for style.
-         setTimeout(()=>{ 
-         const moreInfoBtn = document.createElement('a')
-         moreInfoBtn.innerText = 'Read More';
-         moreInfoBtn.className = 'read-more';
-         showDetails.appendChild(moreInfoBtn);
-         showPlot.after(moreInfoBtn)
-         }, 1000)
-         })
+//Grabs user input and finds movie titles from Movie API based off input given. Then returns it into the search list.
+function displaySearchList(){
+  let userInput = (searchedInput.value).trim()
+    // console.log(userInput)
+    if (userInput.length > 0){
+      searchList.classList.add('show-search-list-dropdown')
+      fetchSearchListData(userInput) 
+    } else {
+      searchList.classList.remove('show-search-list-dropdown')
+    } 
+}
+
+
+function loadSearchedMovies(movies){
+  movies.forEach(movie => {
+    const createSearchedMovie = document.createElement('div');
+    createSearchedMovie.classList.add('searched-list-item');
+    createSearchedMovie.dataset.id = movie.imdbID;
+    //Create a dataset for each movie later so when that movie is clicked we can open it up in the modal with all its data to show user.
+  
+    if(movie.Poster != "N/A"){
+      moviePoster = movie.Poster
+    } else {
+      moviePoster = "src/img/noimg.png"
+    }
+
+    createSearchedMovie.innerHTML = `
+    <div class="item-thumbnail">
+      <img class="thumbnail" src="${moviePoster}">
+    </div>
+    <div class="searched-item-info">
+      <h5>${movie.Title}</h5>
+      <p>${movie.Year}</p>
+    </div>
+    `
+    searchList.appendChild(createSearchedMovie)
+
+  });
+
+  fetchClickedMovie()
+}
+
+
+function fetchClickedMovie(){
+  const allFetchedMoviesList = searchList.querySelectorAll('.searched-list-item');
+  allFetchedMoviesList.forEach(movie =>{
+    movie.addEventListener('click', async () =>{
+      openModal()
+      console.log(movie.dataset.id)
+      searchList.classList.remove('show-search-list-dropdown');
+      searchedInput.value = '';
+
+      const result = await fetch(`http://www.omdbapi.com/?i=${movie.dataset.id}&apikey=b1f6b3a2&plot=full`)
+      const clickedMovie = await result.json();
+      console.log(clickedMovie)
+      loadClickedMovie(clickedMovie)
     })
   })
-  
-  .catch(err => {
-    console.log(`error ${err}`)
-});
+}
+
+function loadClickedMovie(movie){
+  modal.innerHTML = `
+  <figure class="close-modal">&times;</figure>
+  <div class="modal-movie-poster">
+          <img src="${(movie.Poster != "N/A") ? movie.Poster : "src/img/noimg.png"}" alt="movie poster">
+        </div>
+        <div class="modal-movie-info">
+          <h1>${movie.Title}</h1>
+          <ul class="release-info">
+            <li>Released: ${movie.Released}</li>
+          </ul>
+          <p class="movie-rated"><b>Ratings:</b>${movie.Rated}</p>
+          <ul class="generic-info">
+            <li class="genre"><b>Genre:</b> ${movie.Genre}</li>
+            <li><b>Director:</b> ${movie.Director}</li>
+            <li><b>Rating:</b> ${movie.imdbRating}/10 <i class="fa-solid fa-star"></i></li>
+            <li><b>Plot:</b> ${movie.Plot}</li>
+          </ul>
+        </div>
+  `
+}
+
+const modalOverlay = document.querySelector('.modal-overlay');
+modalOverlay.addEventListener('mouseup', closeModal);
+const modal = document.querySelector('.modal');
+
+
+function openModal(){
+  modalOverlay.classList.remove('modal-hidden');
+	modal.classList.remove('modal-hidden');
+	document.querySelector('body').style.overflow = 'hidden';
+}
+
+const closeButton = document.querySelector('.close-modal');
+closeButton.addEventListener('click', closeModal);
+
+function closeModal(e) {
+	modalOverlay.classList.add('modal-hidden');
+	modal.classList.add('modal-hidden');
+	document.querySelector('body').style.overflow = 'visible';
+}
+
+document.addEventListener('keyup', escapeKeyHandle);
+function escapeKeyHandle(e) {
+	if(e.key !== 'Escape') return;
+	closeModal();
+}
+
+
+//Fetching Data from API to load movie posters on Carousel Slides generated from Swiper.JS
+async function fetchTopSliderData(){
+  const URL = `https://www.omdbapi.com/?apikey=b1f6b3a2&s=last&type=movie`;
+  const res = await fetch(`${URL}`);
+  const data = await res.json();
+  // console.log(data)
+  if (data.Response == "True") {loadTopSliderMovies(data.Search)}
+
+  // if (data.Response == 'False'){console.log(`Cannot fetch ${data}`)}
+}
+
+function loadTopSliderMovies(movies){
+  movies.forEach(movie =>{
+    let movieID = movie.imdbID
+    //Took the movie's ID and fetched for the plot so I can put it in the carousel.
+   fetch(`http://www.omdbapi.com/?i=${movieID}&plot=short&apikey=b1f6b3a2`)
+  .then(res => res.json()) // parse response as JSON
+  .then(movieDetails => {
+  const movieSlide = document.createElement('div');
+    movieSlide.className = 'swiper-slide';
+    // movieSlide.dataset.id = movie.imdbID;
+    movieSlide.innerHTML = `
+    <div class="swiper-slide">
+    <img src="${movie.Poster}"/>
+    <figcaption>
+    <h3>${movie.Title}</h3>
+    <p>${movieDetails.Plot}</p><a href="#" class="read-more">Read More</a>
+    </figcaption>
+    </div>
+    `
+    document.querySelector('.top-wrapper').appendChild(movieSlide);
+    })
+  })
+}
+
+async function fetchBottomSliderData(){
+  const URL = `https://www.omdbapi.com/?apikey=b1f6b3a2&s=show&type=series`;
+  const res = await fetch(`${URL}`);
+  const data = await res.json();
+  // console.log(data)
+  if (data.Response == "True") {loadBottomSliderMovies(data.Search)}
+
+  // if (data.Response == 'False'){console.log(`Cannot fetch ${data}`)}
+}
+
+function loadBottomSliderMovies(movies){
+  movies.forEach(movie =>{
+    let movieID = movie.imdbID
+   fetch(`http://www.omdbapi.com/?i=${movieID}&plot=short&apikey=b1f6b3a2`)
+  .then(res => res.json()) // parse response as JSON
+  .then(movieDetails => {
+  const movieSlide = document.createElement('div');
+    movieSlide.className = 'swiper-slide';
+    // movieSlide.dataset.id = movie.imdbID;
+    movieSlide.innerHTML = `
+    <div class="swiper-slide">
+    <img src="${movie.Poster}"/>
+    <figcaption>
+    <h3>${movie.Title}</h3>
+    <p>${movieDetails.Plot}</p><a href="#" class="read-more">Read More</a>
+    </figcaption>
+    </div>
+    `
+    document.querySelector('.bottom-wrapper').appendChild(movieSlide);
+    })
+  })
 }
