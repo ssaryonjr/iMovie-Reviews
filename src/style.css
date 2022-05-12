@@ -382,8 +382,9 @@ header {
 }
 
 .movie-cover-btn:hover{
-  background-color: #d80505ea;
+  background-color: #fffffff3;
   cursor: pointer;
+  color: #e20101;
 }
 
 

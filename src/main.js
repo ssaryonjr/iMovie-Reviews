@@ -108,7 +108,7 @@ async function fetchSearchListData(searchTerm){
 
 
 //Expands and closes the search bar located in the top navigation.
-searchIcon.addEventListener('click', function() {
+searchIcon.addEventListener('click', () => {
   const searchBox = document.querySelector('.search-box')
   searchBox.classList.toggle('active')
 
@@ -128,7 +128,7 @@ function handleInput(){
   searchList.innerHTML = '' //Clears the search list when a new key is entered after brief delay.
   clearTimeout(timeoutID) //If user is continuing to type in the searchbar before the 1 second delay ends the fetchMovies() function will not fire off until user stops.
   searchList.classList.remove('show-search-list-dropdown')
-  timeoutID = setTimeout(displaySearchList, 1000)
+  timeoutID = setTimeout(displaySearchList, 500)
 }
 
 
@@ -179,22 +179,20 @@ function fetchClickedMovie(){
   const allFetchedMoviesList = searchList.querySelectorAll('.searched-list-item');
   allFetchedMoviesList.forEach(movie =>{
     movie.addEventListener('click', async () =>{
-      openModal()
-      console.log(movie.dataset.id)
+      // console.log(movie.dataset.id)
       searchList.classList.remove('show-search-list-dropdown');
       searchedInput.value = '';
-
       const result = await fetch(`https://www.omdbapi.com/?i=${movie.dataset.id}&apikey=5cfbbc87&plot=full`)
       const clickedMovie = await result.json();
-      console.log(clickedMovie)
       loadClickedMovie(clickedMovie)
+      openModal()
     })
   })
 }
 
 function loadClickedMovie(movie){
   modal.innerHTML = `
-  <figure class="close-modal">&times;</figure>
+  <figure class="close-modal">&times;</figure> 
   <div class="modal-movie-poster">
           <img src="${(movie.Poster != "N/A") ? movie.Poster : "src/img/noimg.png"}" alt="movie poster">
         </div>
@@ -213,6 +211,22 @@ function loadClickedMovie(movie){
         </div>
   `
 }
+
+// WILL FIX CLOSE BUTTON later 
+// const xMark = document.createElement('figure');
+//   xMark.classList.add('close-modal');
+//   modal.appendChild(xMark);
+
+//   const modalPoster = document.createElement('div');
+//   modalPoster.classList.add('modal-movie-poster');
+//   modal.appendChild(modalPoster);
+
+
+
+//   const img = document.createElement('img');
+//   img.src = (movie.Poster != "N/A") ? movie.Poster : "src/img/noimg.png"
+//   modalPoster.appendChild(img);
+  
 
 const modalOverlay = document.querySelector('.modal-overlay');
 modalOverlay.addEventListener('mouseup', closeModal);
@@ -259,22 +273,48 @@ function loadTopSliderMovies(movies){
    fetch(`https://www.omdbapi.com/?i=${movieID}&plot=short&apikey=5cfbbc87`)
   .then(res => res.json()) // parse response as JSON
   .then(movieDetails => {
-  const movieSlide = document.createElement('div');
+    const movieSlide = document.createElement('div');
     movieSlide.className = 'swiper-slide';
-    // movieSlide.dataset.id = movie.imdbID;
-    movieSlide.innerHTML = `
-    <div class="swiper-slide">
-    <img src="${movie.Poster}"/>
-    <figcaption>
-    <h3>${movie.Title}</h3>
-    <p>${movieDetails.Plot}</p><a href="#" class="read-more">Read More</a>
-    </figcaption>
-    </div>
-    `
     document.querySelector('.top-wrapper').appendChild(movieSlide);
+
+    const moviePoster = document.createElement('img');
+    moviePoster.className = 'movie-img';
+    moviePoster.src = movie.Poster;
+    movieSlide.appendChild(moviePoster)
+
+    const movieInfo = document.createElement('figcaption');
+    movieSlide.appendChild(movieInfo)
+
+    const movieTitle = document.createElement('h3')
+    movieTitle.innerText = movie.Title
+    movieInfo.appendChild(movieTitle)
+
+    const moviePlot = document.createElement('p');
+    moviePlot.innerText = movieDetails.Plot
+    movieInfo.append(moviePlot)
+
+    const moreInfoBtn = document.createElement('a')
+    moreInfoBtn.innerText = 'Read More';
+    moreInfoBtn.className = 'read-more';
+    moreInfoBtn.dataset.id = movie.imdbID;
+    movieInfo.appendChild(moreInfoBtn);
+    moviePlot.after(moreInfoBtn)
+
+    fetchClickedButton(moreInfoBtn)
     })
   })
 }
+
+
+function fetchClickedButton(e){
+  e.addEventListener('click', async () =>{
+    const result = await fetch(`https://www.omdbapi.com/?i=${e.dataset.id}&apikey=5cfbbc87&plot=full`)
+    const clickedMovie = await result.json();
+    loadClickedMovie(clickedMovie)
+    openModal()
+  })
+}
+
 
 async function fetchBottomSliderData(){
   const URL = `https://www.omdbapi.com/?apikey=5cfbbc87&s=show&type=series`;
@@ -292,19 +332,34 @@ function loadBottomSliderMovies(movies){
    fetch(`https://www.omdbapi.com/?i=${movieID}&plot=short&apikey=5cfbbc87`)
   .then(res => res.json()) // parse response as JSON
   .then(movieDetails => {
-  const movieSlide = document.createElement('div');
+    const movieSlide = document.createElement('div');
     movieSlide.className = 'swiper-slide';
-    // movieSlide.dataset.id = movie.imdbID;
-    movieSlide.innerHTML = `
-    <div class="swiper-slide">
-    <img src="${movie.Poster}"/>
-    <figcaption>
-    <h3>${movie.Title}</h3>
-    <p>${movieDetails.Plot}</p><a href="#" class="read-more">Read More</a>
-    </figcaption>
-    </div>
-    `
     document.querySelector('.bottom-wrapper').appendChild(movieSlide);
+
+    const moviePoster = document.createElement('img');
+    moviePoster.className = 'bottom-img';
+    moviePoster.src = movie.Poster;
+    movieSlide.appendChild(moviePoster)
+
+    const movieInfo = document.createElement('figcaption');
+    movieSlide.appendChild(movieInfo)
+
+    const movieTitle = document.createElement('h3')
+    movieTitle.innerText = movie.Title
+    movieInfo.appendChild(movieTitle)
+
+    const moviePlot = document.createElement('p');
+    moviePlot.innerText = movieDetails.Plot
+    movieInfo.append(moviePlot)
+
+    const moreInfoBtn = document.createElement('a')
+    moreInfoBtn.innerText = 'Read More';
+    moreInfoBtn.className = 'read-more';
+    moreInfoBtn.dataset.id = movie.imdbID;
+    movieInfo.appendChild(moreInfoBtn);
+    moviePlot.after(moreInfoBtn)
+
+    fetchClickedButton(moreInfoBtn)
     })
   })
 }
