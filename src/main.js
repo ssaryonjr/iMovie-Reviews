@@ -6,6 +6,8 @@ const topMovieSlider = new Swiper('.top-movie-slider', {
   // Optional parameters
   direction: 'horizontal',
   loop: false,
+  centeredSlides: true,
+  centeredSlidesBounds: true,
 
 slidesPerView: 1,
 spaceBetween: 10,
@@ -32,7 +34,7 @@ breakpoints: {
   },
   // when window width is >= 100px
   1600: {
-    slidesPerView: 6,
+    slidesPerView: 6.5,
     spaceBetween: 15
   }
 }
@@ -42,6 +44,8 @@ const bottomMovieSlider = new Swiper('.bottom-movie-slider', {
     // Optional parameters
     direction: 'horizontal',
     loop: false,
+    centeredSlides: true,
+    centeredSlidesBounds: true,
   
     // Navigation arrows
     // navigation: {
@@ -75,7 +79,7 @@ const bottomMovieSlider = new Swiper('.bottom-movie-slider', {
     },
     // when window width is >= 100px
     1600: {
-      slidesPerView: 6,
+      slidesPerView: 6.5,
       spaceBetween: 15
     }
   }
