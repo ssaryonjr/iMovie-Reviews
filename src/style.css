@@ -812,3 +812,37 @@ transition-delay: 0.35s;
 }
 
 /* END OF MODAL  */
+
+footer{
+  margin-top: 8%;
+  width: 100%;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  padding: 0 2rem;
+}
+
+footer p{
+  display: inline;
+  font-size: 1.7rem;
+  margin-bottom: .8rem;
+
+}
+
+.to-github{
+  text-decoration: none;
+  list-style-type: none;
+  color: #ffff;
+}
+
+.my-name {
+  font-weight: bold;
+}
+
+.fa-github{
+  font-size: 2rem;
+}
