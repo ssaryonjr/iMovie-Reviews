@@ -214,23 +214,14 @@ function loadClickedMovie(movie){
           </ul>
         </div>
   `
+
+  let xBtn = document.createElement('figure');
+  xBtn.classList.add('close-modal');
+  xBtn.innerHTML = '&times;';
+  modal.append(xBtn);
+  xBtn.addEventListener('click', closeModal);
 }
 
-// WILL FIX CLOSE BUTTON later 
-// const xMark = document.createElement('figure');
-//   xMark.classList.add('close-modal');
-//   modal.appendChild(xMark);
-
-//   const modalPoster = document.createElement('div');
-//   modalPoster.classList.add('modal-movie-poster');
-//   modal.appendChild(modalPoster);
-
-
-
-//   const img = document.createElement('img');
-//   img.src = (movie.Poster != "N/A") ? movie.Poster : "src/img/noimg.png"
-//   modalPoster.appendChild(img);
-  
 
 const modalOverlay = document.querySelector('.modal-overlay');
 modalOverlay.addEventListener('mouseup', closeModal);
@@ -243,8 +234,6 @@ function openModal(){
 	document.querySelector('body').style.overflow = 'hidden';
 }
 
-const closeButton = document.querySelector('.close-modal');
-closeButton.addEventListener('click', closeModal);
 
 function closeModal(e) {
 	modalOverlay.classList.add('modal-hidden');
@@ -324,7 +313,6 @@ function fetchClickedButton(e){
 //Loads the header cover movie details. (Dark)
 const headerBtn = document.querySelector('.movie-cover-btn')
 headerBtn.dataset.id = 'tt5753856';
-console.log(headerBtn)
 fetchClickedButton(headerBtn)
 
 
