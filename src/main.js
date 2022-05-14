@@ -310,6 +310,8 @@ function loadTopSliderMovies(movies){
 }
 
 
+
+
 function fetchClickedButton(e){
   e.addEventListener('click', async () =>{
     const result = await fetch(`https://www.omdbapi.com/?i=${e.dataset.id}&apikey=5cfbbc87&plot=full`)
@@ -318,6 +320,13 @@ function fetchClickedButton(e){
     openModal()
   })
 }
+
+//Loads the header cover movie details. (Dark)
+const headerBtn = document.querySelector('.movie-cover-btn')
+headerBtn.dataset.id = 'tt5753856';
+console.log(headerBtn)
+fetchClickedButton(headerBtn)
+
 
 
 async function fetchBottomSliderData(){

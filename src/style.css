@@ -125,6 +125,7 @@ body{
   z-index: 100000;
 }
 
+
 .search-box.active {
   width: 260px;
   box-shadow: 0 0 0 2.5px rgba(204, 204, 204, 0.281);
