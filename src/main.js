@@ -1,92 +1,6 @@
 document.addEventListener('DOMContentLoaded', fetchTopSliderData)
 document.addEventListener('DOMContentLoaded', fetchBottomSliderData)
 
-//Swiper.JS 
-const topMovieSlider = new Swiper('.top-movie-slider', {
-  // Optional parameters
-  direction: 'horizontal',
-  loop: false,
-  centeredSlides: true,
-  centeredSlidesBounds: true,
-
-slidesPerView: 1,
-spaceBetween: 10,
-// Responsive breakpoints
-breakpoints: {
-  490: {
-      slidesPerView: 2,
-      spaceBetween: 25
-    },
-
-  700: {
-      slidesPerView: 3,
-      spaceBetween: 15
-    },
-  // when window width is >= 440px
-  1025: {
-    slidesPerView: 4,
-    spaceBetween: 15
-  },
-  // when window width is >= 660px
-  1300: {
-    slidesPerView: 5,
-    spaceBetween: 15
-  },
-  // when window width is >= 100px
-  1600: {
-    slidesPerView: 6.5,
-    spaceBetween: 15
-  }
-}
-});
-
-const bottomMovieSlider = new Swiper('.bottom-movie-slider', {
-    // Optional parameters
-    direction: 'horizontal',
-    loop: false,
-    centeredSlides: true,
-    centeredSlidesBounds: true,
-  
-    // Navigation arrows
-    // navigation: {
-    //   nextEl: '.swiper-button-next',
-    //   prevEl: '.swiper-button-prev',
-    // },
-
-    // Default parameters
-  slidesPerView: 1,
-  spaceBetween: 10,
-  // Responsive breakpoints
-  breakpoints: {
-    490: {
-        slidesPerView: 2,
-        spaceBetween: 25
-      },
-
-    700: {
-        slidesPerView: 3,
-        spaceBetween: 15
-      },
-    // when window width is >= 440px
-    1025: {
-      slidesPerView: 4,
-      spaceBetween: 15
-    },
-    // when window width is >= 660px
-    1300: {
-      slidesPerView: 5,
-      spaceBetween: 15
-    },
-    // when window width is >= 100px
-    1600: {
-      slidesPerView: 6.5,
-      spaceBetween: 15
-    }
-  }
-  });
-
-
-
 //Functionality for search bar / modal
 
 const searchIcon = document.querySelector('.fa-magnifying-glass')
@@ -364,3 +278,88 @@ function loadBottomSliderMovies(movies){
     })
   })
 }
+
+//Swiper.JS 
+const topMovieSlider = new Swiper('.top-movie-slider', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: false,
+  centeredSlides: true,
+  centeredSlidesBounds: true,
+
+slidesPerView: 1,
+spaceBetween: 10,
+// Responsive breakpoints
+breakpoints: {
+  490: {
+      slidesPerView: 2,
+      spaceBetween: 25
+    },
+
+  700: {
+      slidesPerView: 3,
+      spaceBetween: 15
+    },
+  // when window width is >= 440px
+  1025: {
+    slidesPerView: 4,
+    spaceBetween: 15
+  },
+  // when window width is >= 660px
+  1300: {
+    slidesPerView: 5,
+    spaceBetween: 15
+  },
+  // when window width is >= 100px
+  1600: {
+    slidesPerView: 6.5,
+    spaceBetween: 15
+  }
+}
+});
+
+const bottomMovieSlider = new Swiper('.bottom-movie-slider', {
+    // Optional parameters
+    direction: 'horizontal',
+    loop: false,
+    centeredSlides: true,
+    centeredSlidesBounds: true,
+  
+    // Navigation arrows
+    // navigation: {
+    //   nextEl: '.swiper-button-next',
+    //   prevEl: '.swiper-button-prev',
+    // },
+
+    // Default parameters
+  slidesPerView: 1,
+  spaceBetween: 10,
+  // Responsive breakpoints
+  breakpoints: {
+    490: {
+        slidesPerView: 2,
+        spaceBetween: 25
+      },
+
+    700: {
+        slidesPerView: 3,
+        spaceBetween: 15
+      },
+    // when window width is >= 440px
+    1025: {
+      slidesPerView: 4,
+      spaceBetween: 15
+    },
+    // when window width is >= 660px
+    1300: {
+      slidesPerView: 5,
+      spaceBetween: 15
+    },
+    // when window width is >= 100px
+    1600: {
+      slidesPerView: 6.5,
+      spaceBetween: 15
+    }
+  }
+  });
+
