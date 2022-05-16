@@ -283,9 +283,10 @@ function loadBottomSliderMovies(movies){
 const topMovieSlider = new Swiper('.top-movie-slider', {
   // Optional parameters
   direction: 'horizontal',
+  autoplay: true,
   loop: false,
-  centeredSlides: true,
-  centeredSlidesBounds: true,
+  reverseDirection: true,
+  
 
 slidesPerView: 1,
 spaceBetween: 10,
@@ -312,7 +313,7 @@ breakpoints: {
   },
   // when window width is >= 100px
   1600: {
-    slidesPerView: 6.5,
+    slidesPerView: 6,
     spaceBetween: 15
   }
 }
@@ -322,6 +323,7 @@ const bottomMovieSlider = new Swiper('.bottom-movie-slider', {
     // Optional parameters
     direction: 'horizontal',
     loop: false,
+    autoplay: true,
     centeredSlides: true,
     centeredSlidesBounds: true,
   
@@ -357,7 +359,7 @@ const bottomMovieSlider = new Swiper('.bottom-movie-slider', {
     },
     // when window width is >= 100px
     1600: {
-      slidesPerView: 6.5,
+      slidesPerView: 6,
       spaceBetween: 15
     }
   }
