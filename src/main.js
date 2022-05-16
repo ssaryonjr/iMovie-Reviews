@@ -324,8 +324,6 @@ const bottomMovieSlider = new Swiper('.bottom-movie-slider', {
     direction: 'horizontal',
     loop: false,
     autoplay: true,
-    centeredSlides: true,
-    centeredSlidesBounds: true,
   
     // Navigation arrows
     // navigation: {
