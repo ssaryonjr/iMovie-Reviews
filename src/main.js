@@ -232,7 +232,7 @@ fetchClickedButton(headerBtn)
 
 
 async function fetchBottomSliderData(){
-  const URL = `https://www.omdbapi.com/?apikey=5cfbbc87&s=show&type=series`;
+  const URL = `https://www.omdbapi.com/?apikey=5cfbbc87&s=black&type=series`;
   const res = await fetch(`${URL}`);
   const data = await res.json();
   // console.log(data)
