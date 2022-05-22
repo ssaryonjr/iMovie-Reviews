@@ -283,9 +283,9 @@ function loadBottomSliderMovies(movies){
 const topMovieSlider = new Swiper('.top-movie-slider', {
   // Optional parameters
   direction: 'horizontal',
-  autoplay: true,
-  loop: false,
-  reverseDirection: true,
+  // autoplay: true,
+  // loop: false,
+  // reverseDirection: true,
   
 
 slidesPerView: 1,
@@ -322,8 +322,8 @@ breakpoints: {
 const bottomMovieSlider = new Swiper('.bottom-movie-slider', {
     // Optional parameters
     direction: 'horizontal',
-    loop: false,
-    autoplay: true,
+    // loop: false,
+    // autoplay: true,
   
     // Navigation arrows
     // navigation: {
