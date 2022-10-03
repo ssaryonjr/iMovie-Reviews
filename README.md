@@ -16,7 +16,7 @@ iMovie Reviews is a platform for finding the latest critic rating on the newest 
 
 - I was able to implement new HTML5 features such as videos to give the user interface a more dynamimc view and went with the more semantic approach of using HTML elements to give more users a better experience and accessibility.
 - With just regular CSS I was able to create responsive layouts that looks well on every device.
-- On the JavaScript side I took advantage of fetching, async programming and promises to retrieve data from the OMDb API.
+- On the JavaScript side I took advantage of asynchronous programming and promises to retrieve data from the OMDb API.
 
 ## Features
 - Mobile, Desktop, iPad, Tablets & other device type friendly.
@@ -30,7 +30,7 @@ iMovie Reviews is a platform for finding the latest critic rating on the newest 
 </p>
 
 ## Lessons Learned
-This was my first <i><b>big</b></i> full stack project so the learning curve for putting things together was steep. For starters, I built two to three smaller React projects before this just so I can get the hang of writing code in React. I've spent a lot of time planning, researching, reading on the best way to structure such a project. I've learned and implemented the MVC (model-view-controller) archeticture structure and from doing so I grasp a greater understanding for why this software archetictual pattern is so popular. I enjoyed the process of making this and learned a ton over the course of building this project. I now understand the hype over typescript because I was so fustrated when I tried running my code in production and I was getting so many error codes that wasn't showing up during development. I dived head in first in this project knowing only HMTL, CSS, JavaScript and a bit of React and came out being able to confidently use react and the tools in its eco system to produce fast and complex user interfaces. On the backend I had a tougher time in the beginning because I was so used to visually seeing the results of the things I coded. After reading a lot of documentation and a few youtube videos I was able to grasp a better understanding of how the server talks to the API and fetch data from the database and sends it to the front end. This was one of the funnest projects I've built thus far and it gave me the confidence to build anything! 
+-
 
 ## Future Optimizations:
 - Refactor in React.
