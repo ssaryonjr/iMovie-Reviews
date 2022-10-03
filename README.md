@@ -1,4 +1,4 @@
-# iMovie Reviews - The latest Movie Rating's!
+# iMovie Reviews - The latest Movie Ratings!
 Chitchat is a free social media platform for users to interact with one another through either single or group chats. Send & receive messages in real time through the means of web sockets and see timestamps of when those messages were sent! <a href="https://chitchat-messenger.herokuapp.com/"><b>Click here</b></a> to sign up now and start networking with other developers!
 
 <p align="center">
