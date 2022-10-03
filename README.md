@@ -1,5 +1,5 @@
 # iMovie Reviews - The latest Movie Ratings!
-Chitchat is a free social media platform for users to interact with one another through either single or group chats. Send & receive messages in real time through the means of web sockets and see timestamps of when those messages were sent! <a href="https://chitchat-messenger.herokuapp.com/"><b>Click here</b></a> to sign up now and start networking with other developers!
+iMovie Reviews is a platform for finding the latest critic rating on the newest movies on the scene! On the backbone it levarages the OMDb API which updates the API with the latest data on recent movies to hit theaters. Look up your favorite movie or show and see what people are saying about it!
 
 <p align="center">
 <img src="https://github.com/ssaryonjr/iMovie-Reviews/blob/main/imovie.gif?raw=true" height="500px" />
