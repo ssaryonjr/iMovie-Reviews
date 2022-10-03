@@ -30,7 +30,7 @@ iMovie Reviews is a platform for finding the latest critic rating on the newest 
 </p>
 
 ## Lessons Learned
--
+- This was another fun project I built that taught me a deeper understanding into the fundamentals of vanilla JavaScript, asynchronous programming, promises and third party API's. This was great practice at working with other developers code, integrating it into my own and reading up on documentation and best practices.  
 
 ## Future Optimizations:
 - Refactor in React.
