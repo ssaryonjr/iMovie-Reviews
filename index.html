@@ -25,12 +25,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@400;700&display=swap" rel="stylesheet">
-    <title>Samflix Movie Finder</title>
+    <title>iMovie Reviews</title>
 </head>
 <body>
   <nav class="header-nav">
     <div class="nav-wrapper">
-    <h2 class="website-title"><span class="title-left">Samflix</span> <span class="title-right">Movies</span></h2>
+    <h2 class="website-title"><span class="title-left">iMovie</span> <span class="title-right">Reviews</span></h2>
     
     <div class="nav-leftside">
         <ul class="nav-menu">
@@ -65,14 +65,32 @@
 </div>
 </nav>
         <header id="home">
-           <div class="movie-cover">
+           <!-- <div class="movie-cover">
                <div class="movie-cover-info">
                    <img class="movie-cover-img" src="src/img/moviecovertitle.png">
                    <p>When two children go missing in a small German town, its sinful past is exposed along with the double lives and fractured relationships that exist among four families as they search for the kids
                    </p>
-                   <button class="movie-cover-btn">More Info</button>
+                   
                </div>
-           </div>
+           </div> -->
+
+  <div class="video-container">
+    <video width="100%" class="movie-cover" autoplay muted loop>
+    <source class="video" src="./src//img/moviecover2.mp4" type="video/mp4" codecs='avc1, mp4a'>
+    Your browser does not support the video tag.
+  </video>
+
+  <div class="overlay"></div>
+    <div class="movie-cover-info">
+      <h2>Marvel Studios</h2> 
+      <h3><span class="avengers-title">Avengers</span> End Game</h3>
+      <p>After the devastating events of Avengers: Infinity War, the universe is in ruins due to the efforts of the Mad Titan, Thanos. With the help of remaining allies, the Avengers must assemble once more in order to undo Thanos's actions and undo the chaos to the universe, no matter what consequences may be in store..</p>
+      <button class="movie-cover-btn">Read More</button>
+    </div>
+  </div>
+  
+
+    
         </header>
         <section>
             <div id="movies" class="category-list">

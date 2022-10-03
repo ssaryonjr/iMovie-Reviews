@@ -226,7 +226,7 @@ function fetchClickedButton(e){
 
 //Loads the header cover movie details. (Dark)
 const headerBtn = document.querySelector('.movie-cover-btn')
-headerBtn.dataset.id = 'tt5753856';
+headerBtn.dataset.id = 'tt4154796';
 fetchClickedButton(headerBtn)
 
 
@@ -283,7 +283,7 @@ function loadBottomSliderMovies(movies){
 const topMovieSlider = new Swiper('.top-movie-slider', {
   // Optional parameters
   direction: 'horizontal',
-  // autoplay: true,
+  autoplay: true,
   // loop: false,
   // reverseDirection: true,
   
@@ -323,7 +323,7 @@ const bottomMovieSlider = new Swiper('.bottom-movie-slider', {
     // Optional parameters
     direction: 'horizontal',
     // loop: false,
-    // autoplay: true,
+    autoplay: true,
   
     // Navigation arrows
     // navigation: {
