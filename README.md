@@ -12,13 +12,11 @@ iMovie Reviews is a platform for finding the latest critic rating on the newest 
 <img src="https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white" height=25>
 </p>
 
-<b>Technologies & Tools Utilized:</b> React, Node, MongoDB, Express, Mongoose, Socket.io, React Query, HTML & CSS.</b> This project was inspired directly from popular platforms such as Facebook and iMessage, I decided to construct my own version of the software that everday people use to connect with others around the world daily. 
+<b>Technologies & Tools Utilized:</b> JavaScript, OMDb API, Swiper.js, HTML & CSS.</b> This project was inspired directly from popular streaming platforms such as Netflix. This project highlights the use of working with third party API's to dynamically change the user interface with JavaScript.
 
-
-<b>Frontend:</b>
-- I needed a framework that would give me the ability to create fast user interfaces with complex designs and modularity across my frontend, and for that React was a no brainer!
-- One of the main tools I used on the front end was React Query for state managment. The reason I went with React Query over a tool like Redux was because ReactQuery gives a better developer experience for handling API request from the server side & caching while also not having so much boilerplate code.
-- Through the means of levarging powerful technologies such as web sockets provided by socket.io I was able to create two way connections between the client and the server which opens up the ability for users to have real time messaging sent and received with very low latency. 
+- I was able to implement new HTML5 features such as videos to give the user interface a more dynamimc view and went with the more semantic approach of using HTML elements to give more users a better experience and accessibility.
+- With just regular CSS I was able to create responsive layouts that looks well on every device.
+- On the JavaScript side I took advantage of fetching, async programming and promises to retrieve data from the OMDb API.
 
 ## Features
 - Mobile, Desktop, iPad, Tablets & other device type friendly.
