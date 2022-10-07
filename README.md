@@ -1,5 +1,5 @@
 # iMovie Reviews - The latest Movie Ratings!
-iMovie Reviews is a platform for finding the latest critic rating on the newest movies on the scene! On the backbone it levarages the OMDb API which updates the API with the latest data on recent movies to hit theaters. Look up your favorite movie or show and see what people are saying about it!
+iMovie Reviews is a platform for finding the latest critic rating on the newest movies on the scene! On the backbone it levarages the OMDb API which updates the API with the latest data on recent movies to hit theaters. <a href="https://imoviereviews.netlify.app/">Click here</a> Look up your favorite movie or show and see what people are saying about it!
 
 <p align="center">
 <img src="https://github.com/ssaryonjr/iMovie-Reviews/blob/main/imovie.gif?raw=true" height="500px" />
